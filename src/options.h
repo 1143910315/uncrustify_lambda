@@ -2011,6 +2011,10 @@ indent_token_after_brace; // = true
 extern Option<bool>
 indent_cpp_lambda_body;
 
+// Align the semicolon of a lambda expression with the indentation of its body.
+extern Option<bool>
+indent_cpp_lambda_align_semicolon;
+
 // How to indent compound literals that are being returned.
 // true: add both the indent from return & the compound literal open brace
 //       (i.e. 2 indent levels)

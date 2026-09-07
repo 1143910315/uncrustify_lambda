@@ -1614,6 +1614,7 @@ void indent_text()
                  && pc->GetParentType() == E_Token::CT_CPP_LAMBDA)
          {
             log_rule_B("indent_cpp_lambda_body");
+            log_rule_B("indent_cpp_lambda_align_semicolon");
             frm.top().SetBraceIndent(frm.prev().GetIndent());
 
             Chunk const *head         = frm.top().GetOpenChunk()->GetPrevNcNnlNpp();
@@ -1700,7 +1701,8 @@ void indent_text()
 
             if (  sameLine
                && (  (isAssignSameLine)
-                  || (closureSameLineTopLevel)))
+                  || (closureSameLineTopLevel)
+                  || (options::indent_cpp_lambda_align_semicolon())))
             {
                if (indent_size > frm.top().GetBraceIndent())       // if options::indent_indent_columns() is too big
                {
